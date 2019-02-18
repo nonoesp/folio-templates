@@ -1,0 +1,61 @@
+/// Global namespace for gridview component
+/// @access public
+/// @group gridview
+/// @type string
+$FOgridview-namespace: c-gridview !default;
+$FOgridview-link-color: inherit !default;
+$FOgridview-link-color-hover: blue !default;
+$FOgridview-meta-color: rgba(0, 0, 0, .5) !default;
+
+/* */
+
+ul.#{$FOgridview-namespace} {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: baseline;
+    list-style: none;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+    & li {
+        width: 25%;
+        padding: 0 10px;
+        margin-bottom: 40px;
+        font-size: 14px;
+        line-height: 20px;
+        -webkit-font-smoothing: subpixel-antialiased;
+        display: list-item;
+        text-align: -webkit-match-parent;
+        @media all and (max-width: 700px) {
+            & {
+                width: 33%;
+            }
+        }
+        @media all and #{$media-palm} {
+            & {
+                width: 50%;
+            }
+        }
+    }
+    & li a small {
+        display: block;
+        color: $FOgridview-meta-color;
+    }
+    & a img {
+        width: 100%;
+        margin-bottom: 10px;
+        transition: all .1s ease-out;
+    }
+    & li a[href]:hover img {
+        filter: saturate(0) brightness(50%)
+    }
+    & li a {
+        color: $FOgridview-link-color
+    }
+    & li a[href]:hover {
+        color: $FOgridview-link-color-hover;
+    }
+}
