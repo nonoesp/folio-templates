@@ -9,5 +9,5 @@
 
 ## Collection templates
 
-- [colleciton-grid-view](collection-grid-view.blade.php) (uses [_c-gridview.scss](sass/_c-gridview.scss)) ([See it in action](https://nono.ma/shop).)
+- [collection-grid-view](collection-grid-view.blade.php) (uses [_c-gridview.scss](sass/_c-gridview.scss)) ([See it in action](https://nono.ma/shop).)
 - [collection-archive](collection-archive.blade.php)
