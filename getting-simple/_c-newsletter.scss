@@ -1,0 +1,41 @@
+.c-newsletter__slogan {
+    // letter-spacing: -0.05em;
+    letter-spacing:-0.02em;
+    font-weight:600;
+}
+
+@media #{$media-palm} {
+    .c-newsletter__slogan {
+        letter-spacing: -0.07em;
+    }
+}
+
+.c-newsletter__small-slogan {
+    letter-spacing: -0.02em;
+    line-height: 35px;
+}
+
+@media #{$media-palm} {
+    .c-newsletter__small-slogan {
+        line-height: 25px;
+    }
+}
+
+.c-newsletter__slogan p {
+    margin-bottom: 5px;
+}
+
+.c-newsletter__follow a {
+    text-decoration: none;
+    color: #777;
+}
+
+.c-newsletter__follow a:hover {
+    text-decoration: underline;
+}
+
+.o-icon--arrow-down {
+    width: 28px;
+    fill: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+}

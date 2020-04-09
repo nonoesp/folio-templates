@@ -1,0 +1,122 @@
+// represent a proportioned image thumbnail
+.o-thumb-v2 {
+    overflow: hidden;
+}
+
+.o-thumb-v2 {
+    width: 100%;
+    /* whatever width you want */
+    display: inline-block;
+    position: relative;
+    z-index: $zIndex-1;
+}
+
+// Container proportions
+.o-thumb-v2:after {
+    padding-top: 100%;
+    display: block;
+    content: '';
+}
+
+// Parametric proportions =)
+// For instance,
+// o-thumb-v2-10-10 for a 1:1 proportion
+// o-thumb-v2-20-10 for a 2:1 proportion
+// o-thumb-v2-10-20 for a 1:2 proportion
+// o-thumb-v2-17-10 for a 17:10 proportion (kinda like 16:9)
+@for $i from 10 through 40 {
+    $proportion-vertical: $i/10;
+    $proportion-horizontal: 10/$i;
+    .o-thumb-v2--10-#{$i}:after {
+        padding-top: $proportion-vertical * 100%;
+    }
+    .o-thumb-v2--#{$i}-10:after {
+        padding-top: $proportion-horizontal * 100%;
+    }
+    @media all and #{$media-desk} {
+        .o-thumb-v2--desk-10-#{$i}:after {
+            padding-top: $proportion-vertical * 100%;
+        }
+        .o-thumb-v2--desk-#{$i}-10:after {
+            padding-top: $proportion-horizontal * 100% !important;
+        }
+    }
+    @media all and #{$media-portable} {
+        .o-thumb-v2--portable-10-#{$i}:after {
+            padding-top: $proportion-vertical * 100%;
+        }
+        .o-thumb-v2--portable-#{$i}-10:after {
+            padding-top: $proportion-horizontal * 100% !important;
+        }
+    }
+    @media all and #{$media-palm} {
+        .o-thumb-v2--palm-10-#{$i}:after {
+            padding-top: $proportion-vertical * 100%;
+        }
+        .o-thumb-v2--palm-#{$i}-10:after {
+            padding-top: $proportion-horizontal * 100% !important;
+        }
+    }
+    @media all and #{$media-lap} {
+        .o-thumb-v2--lap-10-#{$i}:after {
+            padding-top: $proportion-vertical * 100%;
+        }
+        .o-thumb-v2--lap-#{$i}-10:after {
+            padding-top: $proportion-horizontal * 100% !important;
+        }
+    }
+}
+
+// Holds a background image for the thumbnail
+.o-thumb-v2__canvas {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: $zIndex-1;
+}
+
+.o-thumb-v2__veil {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: $zIndex-2;
+    @include user-select(none);
+}
+
+.o-thumb-v2__label {
+    z-index: $zIndex-3;
+    margin: auto;
+    position: absolute;
+    display: block;
+    text-align: center;
+    @include user-select(none);
+}
+
+.o-thumb-v2__label--center {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    padding: 8px 0;
+    height: 50px;
+}
+
+.o-thumb-v2__link {
+    @include user-select(none);
+}
+
+.o-thumb-v2__link:hover .o-thumb-v2__veil {
+    background-color: rgba(255, 255, 255, 1.0);
+    @include transition(all 0.25s ease-in-out);
+}
+
+.o-thumb-v2__link:hover .o-thumb-v2__label {
+    opacity: 1.0;
+    @include transition(all 0.25s ease-in-out);
+}

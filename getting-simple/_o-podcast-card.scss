@@ -1,0 +1,99 @@
+$o-card-name: 'o-card';
+$o-card-font-size: 120% !default;
+$o-card-border-radius: 5px;
+$o-card-margin-bottom: 10px;
+
+//.#{$o-card-name} {
+//    background-color: red;
+//}
+.o-card {
+    border-radius: $o-card-border-radius;
+    cursor: pointer;
+    // box-shadow: 0 10px 25px 0 rgba(50, 94, 128, .2);
+    // box-shadow: 0 3px 5px 0 rgba(50, 94, 128, .2);
+    overflow: hidden;
+    @include transition(transform 0.15s ease-in-out);
+    background: rgba(0,0,0,0.06);
+}
+
+.o-card * {
+    cursor: pointer;
+}
+
+.o-card:hover {
+    transform: scale(1.01);
+    @include transition(transform 0.05s ease-in-out);
+}
+
+.o-card__image {
+    position: relative;
+    padding-top: 9/16 * 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.o-card__text {
+    padding: 20px;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-top: none;
+    border-bottom-left-radius: $o-card-border-radius;
+    border-bottom-right-radius: $o-card-border-radius;
+    background-color: #fff;
+}
+
+.o-card__number {
+    font-weight: 300;
+}
+
+.o-card__title {
+    font-family: system-ui, "Inter", "Helvetica", sans-serif;
+    font-weight: 600;
+    font-size: $o-card-font-size;
+    line-height: $o-card-font-size;
+    color: #222;
+    margin-bottom: $o-card-margin-bottom;
+    letter-spacing: -0.025em;
+}
+
+.o-card__summary {
+    font-size: 0.9em;
+    opacity: 0.5;
+    margin-bottom: $o-card-margin-bottom;
+}
+
+.o-card__date {
+    font-weight: 600;
+    margin-bottom: $o-card-margin-bottom;
+}
+
+.o-card__duration {
+    position:absolute;
+    right: 10px;
+}
+
+@media not all and #{$media-palm} {
+    .o-card--feature .o-card__title {
+        // padding: 30px 40px;
+        font-size: 180%;
+    }
+}
+
+@media all and #{$media-palm} {
+    .o-card__title {
+        // padding: 30px 40px;
+        font-size: 110%;
+    }
+
+    // .o-card {
+        // border-radius: 0;
+        // box-shadow: 0 10px 25px 0 rgba(50, 94, 128, .1);
+        // box-shadow: 0 5px 5px 0 rgba(50, 94, 128, .1);
+    // }
+}
+
+/* Modifiers */
+
+.o-card--fade .o-card__image {
+    filter: brightness(92%);
+}
